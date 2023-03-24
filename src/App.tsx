@@ -1,26 +1,83 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useRef, useState, useEffect } from 'react';
+import { Carousel, ICarousel } from './Sandbox';
 
-function App() {
+export function App(): JSX.Element {
+  const carousel = useRef<ICarousel>(null);
+  const [index, setIndex] = useState(0);
+
+  const carouselStyle = {
+    flex: 1,
+    height: '100%',
+  };
+
+  const itemStyle = {
+    width: '100%',
+    height: '100%',
+  };
+  const myRef  = useRef<HTMLDivElement>(null);
+  const [width, setWidth] = useState(0);
+  useEffect(()=>{
+    if (myRef?.current?.offsetWidth){
+      setWidth(myRef?.current?.offsetWidth)
+    }
+  },[myRef])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <div className="app">
+      <h1 className="header">Test ŁB</h1>
 
-export default App;
+      <div className="carousel-container">
+        <div className="my-overlay" ref={myRef}/>
+
+
+
+        <Carousel
+          ref={carousel}
+          width={width}
+          style={carouselStyle}
+          count={4}
+          margin={15}
+          draggable
+          
+          onChange={(newIndex: number): void => {
+            setIndex(newIndex);
+          }}
+        >
+          <div style={{ ...itemStyle, backgroundColor: 'orange' }} >7</div>
+          <div style={{ ...itemStyle, backgroundColor: 'yellow' }} >8</div>
+          <div style={{ ...itemStyle, backgroundColor: 'green' }} >1</div>
+          <div style={{ ...itemStyle, backgroundColor: 'blue' }} >2</div>
+          <div style={{ ...itemStyle, backgroundColor: 'indigo' }} >3</div>
+          <div style={{ ...itemStyle, backgroundColor: 'violet' }} >4</div>
+          <div style={{ ...itemStyle, backgroundColor: 'aqua' }} >5</div>
+          <div style={{ ...itemStyle, backgroundColor: 'pink' }} >6</div>
+        </Carousel>
+
+
+      </div>
+      <div className='buttons'>
+      <button
+          className="button"
+          type="button"
+          onClick={(): void => {
+            carousel.current?.slidePrev();
+          }}
+        >
+          {'<'}
+        </button>
+      <button
+          className="button"
+          type="button"
+          onClick={(): void => {
+            carousel.current?.slideNext();
+          }}
+        >
+          {'>'}
+        </button>
+      </div>
+
+
+      <div className="index">{index}</div>
+    </div>
+  )
+}

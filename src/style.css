@@ -1,0 +1,87 @@
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: grey;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  padding: 0 32px;
+  width: 100%;
+}
+
+.header {
+  align-self: center;
+  color: white;
+}
+
+.carousel-container {
+  position: relative;
+  align-items: center;
+  display: flex;
+  height: 200px;
+  margin-bottom: 16px;
+  max-width: 1000px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.button {
+  padding: 8px;
+  font-size: 18px;
+}
+
+.index {
+  color: white;
+  font-size: 24px;
+}
+
+.my-overlay{
+  position:absolute;
+  display: flex;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  display: flex;
+  height: 200px;
+  width: 100%;
+  z-index: 10;
+  pointer-events: none; 
+}
+.my-overlay::before{
+  content:"";
+  position: absolute;
+  left: 0%;
+  height: 200px;
+  width: 20%;
+  z-index: 10;
+  pointer-events: auto;
+  background-color: black;
+}
+.my-overlay::after{
+  position: absolute;
+  content:"";
+  height: 200px;
+  left:80%;
+  width: 20%;
+  z-index: 10;
+  pointer-events: auto;
+  background-color: black;
+}
