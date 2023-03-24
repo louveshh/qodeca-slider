@@ -1,13 +1,10 @@
-# Getting Started with Create React App
-Project need a clean up, reorganize files structure (for example blackbars component should be in Sandbox -> to be done in future)
+# Slider for qodeca, based on other sliders from the internet, and my custom changes
+Project need a clean up, reorganize files structure etc. <br />
+(for example blackbars component should be in Sandbox -> to be done in future)
 ## Available Scripts
-
 To run npm run start
-
-
 ## Available Settings <br />
-To change settings <br />
-# In file App.tsx <br />
+### In file App.tsx <br />
 <Carousel <br />
   ref={carousel} <br />
   width={width} <br />
@@ -16,7 +13,7 @@ To change settings <br />
   margin={15} - here we can change margin <br />
 > <br />
 
-# In File Slider.tsx & style.css
+### In File Slider.tsx & style.css
 Blackbars (not finished clean up, so have to be done in multiple places) <br />
 For this example 20% <br />
 const percentage = 0.2 - percentage of black bars <br />
