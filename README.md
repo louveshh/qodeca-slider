@@ -20,7 +20,7 @@ To change settings <br />
 Blackbars (not finished clean up, so have to be done in multiple places) <br />
 For this example 20% <br />
 const percentage = 0.2 - percentage of black bars <br />
-+ we have to change  <br />
+and we have to change  <br />
   .my-overlay::before{ <br />
   width: 20%; <br />
 } <br />
